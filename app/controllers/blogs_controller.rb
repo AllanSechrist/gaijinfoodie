@@ -31,7 +31,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog = Blog.find(params[:id])
     @blog.destroy
-    redirect_to blogs_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
