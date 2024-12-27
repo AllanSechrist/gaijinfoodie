@@ -7,9 +7,18 @@
           <h2>
             <%= link_to blog.title, blog_path(blog), class: 'text-decoration-none' %>
           </h2>
+          <div class="d-flex align-items-center">
+            <h5 class="me-2"><%= blog.restaurant.name %></h5>
+            <p class="mt-2 ms-5"><%= blog.restaurant.cuisine %></p>
+          </div>
           <p>
             <%= blog.content.truncate_words(8) %>
           </p>
+          <div id="ratings">
+            food: <%= blog.restaurant.food_rating %> |
+            service: <%= blog.restaurant.service_rating %> |
+            price: <%= blog.restaurant.price_rating %>
+            </div>
           <p>
             <%= blog.published_date %>
           </p>

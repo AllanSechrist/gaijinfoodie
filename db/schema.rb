@@ -10,11 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_27_011704) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_27_020941) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.date "published_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "restaurant_id", null: false
+    t.index ["restaurant_id"], name: "index_blogs_on_restaurant_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "cuisine"
+    t.string "website"
+    t.string "phone"
+    t.string "email"
+    t.string "food_rating"
+    t.string "service_rating"
+    t.string "price_rating"
+    t.string "open_time"
+    t.string "close_time"
+    t.string "days_open"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,4 +51,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_27_011704) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "blogs", "restaurants"
 end
