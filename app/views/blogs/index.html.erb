@@ -8,7 +8,7 @@
             <%= blog.title %>
           </h2>
           <p>
-            <%= blog.content %>
+            <%= blog.content.truncate_words(8) %>
           </p>
           <p>
             <%= blog.published_date %>
