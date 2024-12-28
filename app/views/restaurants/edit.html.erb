@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h2 class="text-center">
+    Edit restaurant
+  </h2>
+  <%= simple_form_for @restaurant do |f| %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :cuisine %>
+    <%= f.input :website %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :food_rating %>
+    <%= f.input :service_rating %>
+    <%= f.input :price_rating %>
+    <%= f.input :open_time %>
+    <%= f.input :close_time %>
+    <%= f.input :days_open %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+</div>
