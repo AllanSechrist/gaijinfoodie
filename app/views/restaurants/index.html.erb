@@ -7,7 +7,7 @@
       <% @restaurants.each do |restaurant| %>
         <div class="restaurant mb-3">
           <h2>
-            <%= restaurant.name %>
+            <%= link_to restaurant.name, restaurant_path(restaurant), class: 'text-decoration-none' %>
           </h2>
           <h5 class="fw-normal">
             Most recent blog: <%= link_to restaurant.blogs[0].title, blog_path(restaurant.blogs[0]), class: 'text-decoration-none' %>

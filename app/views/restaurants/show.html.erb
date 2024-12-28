@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <h2 class="my-3 text-center">
+        <%= @restaurant.name %> |
+        <span class="fw-normal"><%= @restaurant.cuisine %></span>
+      </h2>
+      <div id="restaruant_contact" class="container">
+        website: <%= @restaurant.website %> |
+        phone: <%= @restaurant.phone %> |
+        email: <%= @restaurant.email %>
+      </div>
+      <div id="restaurant_ratings" class="container">
+        food: <%= @restaurant.food_rating %> |
+        service: <%= @restaurant.service_rating %> |
+        price: <%= @restaurant.price_rating %>
+      </div>
+      <div id="restaurant_times" class="container">
+        open time: <%= @restaurant.open_time %> |
+        close time: <%= @restaurant.close_time %> |
+        days open: <%= @restaurant.days_open %>
+      </div>
+    </div>
+  </div>
+</div>
