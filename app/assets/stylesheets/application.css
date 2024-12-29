@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ .delete-icon:hover {
+  color: #dc3545;
+ }
+
+ .edit-icon:hover {
+  color: #ffc107;
+ }
