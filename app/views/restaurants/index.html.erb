@@ -9,13 +9,23 @@
           <h2>
             <%= link_to restaurant.name, restaurant_path(restaurant), class: 'text-decoration-none' %>
           </h2>
-          <h5 class="fw-normal">
             <% if restaurant.blogs.count > 0 %>
-              Most recent blog: <%= link_to restaurant.blogs[0].title, blog_path(restaurant.blogs[0]), class: 'text-decoration-none' %>
+                <h5 class="fw-normal">
+                  Most recent blog: <%= link_to restaurant.blogs[0].title, blog_path(restaurant.blogs[0]), class: 'text-decoration-none' %>
+                </h5>
             <% else %>
-              No blogs have been written for this restaurant.
+              <h5 class="fst-italic fw-normal">
+                No blogs have been written for this restaurant.
+              </h5>
             <% end %>
-          </h5>
+            <div id="actions">
+            <%= link_to restaurant_path(restaurant), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'text-decoration-none text-reset' do %>
+              <span class="me-2"><i class="fa-solid fa-trash-can fa-lg delete-icon"></i></span>
+            <% end %> |
+            <%= link_to edit_restaurant_path(restaurant), class: 'text-decoration-none text-reset' do %>
+              <span id="edit-icon" class="ms-2"><i class="fa-regular fa-pen-to-square fa-lg edit-icon"></i></span>
+            <% end %>
+            </div>
         </div>
       <% end %>
     </div>
