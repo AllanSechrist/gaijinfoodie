@@ -3,7 +3,7 @@
     <div class="col-sm-8 offset-sm-2">
       <h2 class="my-3 text-center">
         <%= @restaurant.name %> |
-        <span class="fw-normal"><%= @restaurant.cuisine %></span>
+        <span class="fw-normal fst-italic"><%= @restaurant.cuisine %></span>
       </h2>
       <div id="restaruant_contact" class="container">
         website: <%= @restaurant.website %> |
@@ -19,6 +19,9 @@
         open time: <%= @restaurant.open_time %> |
         close time: <%= @restaurant.close_time %> |
         days open: <%= @restaurant.days_open %>
+      </div>
+      <div class="container mt-3">
+        <%= link_to "Back to Restaurants", restaurants_path, class: 'text-decoration-none' %>
       </div>
     </div>
   </div>
