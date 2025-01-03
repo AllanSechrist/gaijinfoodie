@@ -3,14 +3,20 @@
     <div class="col-sm-8 offset-sm-2">
       <h2 class="my-3"><%= @blog.title %></h2>
       <p><%= @blog.content %></p>
-      <div id="actions" class="mb-2">
+      <div id="actions" class="mb-2" data-controller="likes" data-likes-url="<%= like_blog_path(@blog) %>">
         <%= link_to blog_path(@blog), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'text-decoration-none text-reset' do %>
           <span class="me-2"><i class="fa-solid fa-trash-can fa-lg delete-icon"></i></span>
         <% end %> |
         <%= link_to edit_blog_path(@blog), class: 'text-decoration-none text-reset' do %>
           <span id="edit-icon" class="mx-2"><i class="fa-regular fa-pen-to-square fa-lg edit-icon"></i></span>
         <% end %> |
-          <span id="like" class="ms-2"><i class="fa-regular fa-heart fa-lg"></i></span>
+        <%= link_to "#", class: 'text-decoration-none text-reset', data: { action: "likes#like" } do %>
+          <span id="like" class="mx-2"><i class="fa-regular fa-heart fa-lg likes-icon"></i></span>
+        <% end %>
+          <span data-likes-target="count">
+            <%= @blog.likes %>
+          </span>
+
       </div>
       <%= link_to "Blogs", root_path, class: "text-decoration-none" %>
     </div>

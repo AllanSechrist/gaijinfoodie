@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   root to: 'blogs#index'
 
-  resources :blogs
+  resources :blogs do
+    member do
+      patch :like
+    end
+  end
   resources :restaurants
 end

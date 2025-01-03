@@ -28,6 +28,15 @@ class BlogsController < ApplicationController
     redirect_to blog_path(@blog)
   end
 
+  def like
+    @blog = Blog.find(params[:id])
+    @blog.like!
+    respond_to do |format|
+      format.html { redirect_to blog_path(@blog) }
+      format.json { render json: { likes: @blog.likes } }
+    end
+  end
+
   def destroy
     @blog = Blog.find(params[:id])
     @blog.destroy
