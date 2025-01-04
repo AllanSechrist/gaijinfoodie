@@ -26,15 +26,19 @@
           <p>
             <%= blog.published_date %>
           </p>
-          <div id="actions">
-            <%= link_to blog_path(blog), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'text-decoration-none text-reset' do %>
-              <span class="me-2"><i class="fa-solid fa-trash-can fa-lg delete-icon"></i></span>
-            <% end %> |
-            <%= link_to edit_blog_path(blog), class: 'text-decoration-none text-reset' do %>
-              <span id="edit-icon" class="mx-2"><i class="fa-regular fa-pen-to-square fa-lg edit-icon"></i></span>
-            <% end %> |
-              <span id="like" class="ms-2"><i class="fa-regular fa-heart fa-lg"></i></span>
-          </div>
+          <% if current_user&.admin? %>
+            <div id="actions">
+              <%= link_to blog_path(blog), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'text-decoration-none text-reset' do %>
+                <span class="me-2"><i class="fa-solid fa-trash-can fa-lg delete-icon"></i></span>
+              <% end %> |
+              <%= link_to edit_blog_path(blog), class: 'text-decoration-none text-reset' do %>
+                <span id="edit-icon" class="mx-2"><i class="fa-regular fa-pen-to-square fa-lg edit-icon"></i></span>
+              <% end %> |
+                <span class="ms-2"><i class="fa-regular fa-heart fa-lg"></i> <%= blog.likes %></span>
+            </div>
+          <% else %>
+            <span><i class="fa-regular fa-heart fa-lg"></i> <%= blog.likes %></span>
+          <% end %>
         </div>
     <% end %>
     </div>
