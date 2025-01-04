@@ -26,6 +26,22 @@
   color: #dc3545;
  }
 
- .white {
+ .footer {
+  padding: 2rem 0;
+  border-top: 1px solid #e5e5e5;
+  font-size: 1.2rem;
   color: white;
  }
+
+.footer p {
+  margin: 0.5rem 0;
+}
+
+.footer a {
+  color: white;
+  padding: 0 0.5rem;
+}
+
+.footer a:hover {
+  color: lightgray
+}
