@@ -12,7 +12,7 @@
           <div class="d-flex align-items-center">
             <h5 class="me-2">
               <%= link_to blog.restaurant.name, restaurant_path(blog.restaurant), class: 'text-decoration-none' %>
-              </h5>
+            </h5>
             <h5 class="ms-5 fw-normal fst-italic"><%= blog.restaurant.cuisine %></h5>
           </div>
           <p>
@@ -26,19 +26,13 @@
           <p>
             <%= blog.published_date %>
           </p>
-          <% if current_user&.admin? %>
-            <div id="actions">
-              <%= link_to blog_path(blog), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'text-decoration-none text-reset' do %>
-                <span class="me-2"><i class="fa-solid fa-trash-can fa-lg delete-icon"></i></span>
-              <% end %> |
-              <%= link_to edit_blog_path(blog), class: 'text-decoration-none text-reset' do %>
-                <span id="edit-icon" class="mx-2"><i class="fa-regular fa-pen-to-square fa-lg edit-icon"></i></span>
-              <% end %> |
-                <span class="ms-2"><i class="fa-regular fa-heart fa-lg"></i> <%= blog.likes %></span>
-            </div>
-          <% else %>
-            <span><i class="fa-regular fa-heart fa-lg"></i> <%= blog.likes %></span>
-          <% end %>
+
+          <div id="actions">
+            <%= delete_blog_link(blog) %>
+            <%= edit_blog_link(blog) %>
+            <span class="mx-2"><i class="fa-regular fa-heart fa-lg"></i></span>
+            <%= blog.likes %>
+          </div>
         </div>
     <% end %>
     </div>
