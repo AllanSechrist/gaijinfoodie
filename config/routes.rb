@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     member do
       patch :like
     end
+    resources :comments, except: [:index, :show]
   end
   resources :restaurants
   resources :comments

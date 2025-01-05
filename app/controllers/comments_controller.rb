@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.published_date = Date.today
     @comment.save
   end
 
