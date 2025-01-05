@@ -46,6 +46,6 @@ class BlogsController < ApplicationController
   private
 
   def blog_params_new
-    params.require(:blog).permit(:title, :content, :restaurant_id)
+    params.require(:blog).permit(:title, :content, :food_rating, :service_rating, :price_rating, :restaurant_id)
   end
 end

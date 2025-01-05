@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_03_052216) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_05_020812) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -19,6 +19,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_03_052216) do
     t.datetime "updated_at", null: false
     t.integer "restaurant_id", null: false
     t.integer "likes", default: 0, null: false
+    t.string "food_rating"
+    t.string "service_rating"
+    t.string "price_rating"
     t.index ["restaurant_id"], name: "index_blogs_on_restaurant_id"
   end
 
@@ -29,9 +32,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_03_052216) do
     t.string "website"
     t.string "phone"
     t.string "email"
-    t.string "food_rating"
-    t.string "service_rating"
-    t.string "price_rating"
     t.string "open_time"
     t.string "close_time"
     t.string "days_open"
