@@ -1,5 +1,6 @@
 class Restaurant < ApplicationRecord
   has_many :blogs
+  belongs_to :user
 
   enum status: { suggested: 'suggested', visited: 'visited', closed: 'closed' }
 
