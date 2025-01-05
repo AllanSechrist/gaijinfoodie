@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_05_020812) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_05_023538) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_05_020812) do
     t.string "days_open"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "suggested", null: false
   end
 
   create_table "users", force: :cascade do |t|

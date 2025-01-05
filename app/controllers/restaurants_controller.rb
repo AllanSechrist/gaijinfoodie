@@ -23,8 +23,12 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.update(restaurant_params)
-    redirect_to restaurant_path(@restaurant)
+    if params[:restaurant][:status] && !current_user.admin?
+      redirect_to restaurants_path, alert: "You are not authorized to perform this action."
+    else
+      @restaurant.update(restaurant_params)
+      redirect_to restaurant_path(@restaurant)
+    end
   end
 
   def destroy

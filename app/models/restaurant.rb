@@ -1,5 +1,8 @@
 class Restaurant < ApplicationRecord
   has_many :blogs
+
+  enum status: { suggested: 'suggested', visited: 'visited', closed: 'closed' }
+
   FOOD_RATINGS = ['😋', '😋😋', '😋😋😋', '😋😋😋😋', '😋😋😋😋😋'].freeze
   SERVICE_RATINGS = ['👍', '👍👍', '👍👍👍', '👍👍👍👍', '👍👍👍👍👍'].freeze
   PRICE_RATINGS = ['💸', '💸💸', '💸💸💸', '💸💸💸💸', '💸💸💸💸💸'].freeze
