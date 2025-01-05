@@ -5,9 +5,9 @@
     <%= f.input :website %>
     <%= f.input :phone %>
     <%= f.input :email %>
-    <%= f.input :food_rating %>
-    <%= f.input :service_rating %>
-    <%= f.input :price_rating %>
+    <%= f.input :food_rating, collection: Restaurant::FOOD_RATINGS %>
+    <%= f.input :service_rating, collection: Restaurant::SERVICE_RATINGS %>
+    <%= f.input :price_rating, collection: Restaurant::PRICE_RATINGS %>
     <%= f.input :open_time %>
     <%= f.input :close_time %>
     <%= f.input :days_open %>

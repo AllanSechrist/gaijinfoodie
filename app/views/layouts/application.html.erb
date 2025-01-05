@@ -15,7 +15,8 @@
   <body>
     <nav class="navbar bg-body-tertiary" data-bs-theme="dark">
       <div class="container-fluid d-flex px-5">
-        <a class="navbar-brand" href="#">The Gaijin Foodie</a>
+        <%= link_to "The Gaijin Foodie", root_path, class: 'navbar-brand' %>
+        <%# <a class="navbar-brand" href="#">The Gaijin Foodie</a> %>
         <div class="justify-content-end">
           <% if current_user&.admin? %>
             <%= link_to button_data[:text], button_data[:path], class: 'btn btn-primary' %>
