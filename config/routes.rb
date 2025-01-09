@@ -18,5 +18,4 @@ Rails.application.routes.draw do
     resources :comments, except: [:index, :show]
   end
   resources :restaurants
-  resources :comments
 end
