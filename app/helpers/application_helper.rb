@@ -23,9 +23,9 @@ module ApplicationHelper
 
   def toggle_auth_button
     if user_signed_in?
-      link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-danger mx-2'
+      link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link link-danger'
     else
-      link_to "Login", new_user_session_path, class: "btn btn-primary"
+      link_to "Login", new_user_session_path, class: "nav-link"
     end
   end
 end

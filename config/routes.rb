@@ -15,7 +15,8 @@ Rails.application.routes.draw do
     member do
       patch :like
     end
-    resources :comments, except: [:index, :show]
+    resources :comments, only: %i[new create edit update]
   end
   resources :restaurants
+  resources :comments, only: [:destroy]
 end

@@ -1,12 +1,19 @@
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
+    @blog = Blog.find(params[:blog_id])
   end
 
   def create
     @comment = Comment.new(comment_params)
     @comment.published_date = Date.today
-    @comment.save
+    @blog = Blog.find(params[:blog_id])
+    @comment.blog = @blog
+    if @comment.save
+      redirect_to blog_path(@blog)
+    else
+      render :new
+    end
   end
 
   def edit

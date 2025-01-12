@@ -9,7 +9,7 @@
           <h2>
             <%= link_to restaurant.name, restaurant_path(restaurant), class: 'text-decoration-none' %>
           </h2>
-            <% if restaurant.blogs.count > 0 %>
+            <% if restaurant.blogs.any? %>
                 <h5 class="fw-normal">
                   Most recent blog: <%= link_to restaurant.blogs[0].title, blog_path(restaurant.blogs[0]), class: 'text-decoration-none' %>
                 </h5>

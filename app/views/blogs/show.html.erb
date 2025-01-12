@@ -9,6 +9,11 @@
         <%= like_blog_link(@blog, action: "likes#like") %>
         <%= blog_likes_count(@blog) %>
       </div>
+      <% if user_signed_in? %>
+        <%= render "comments/form", locals: { blog: @blog, bookmark: @comment } %>
+      <% else %>
+        <p>You must be logged in to post a comment.</p>
+      <% end %>
       <%= link_to "Blogs", root_path, class: "text-decoration-none" %>
     </div>
   </div>
