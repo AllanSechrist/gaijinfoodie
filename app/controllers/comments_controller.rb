@@ -5,14 +5,15 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.published_date = Date.today
     @blog = Blog.find(params[:blog_id])
-    @comment.blog = @blog
+    @comment = @blog.comments.build(comment_params) # build associates comment with blog
+    @comment.user = current_user
+    @comment.published_date = Date.today
+
     if @comment.save
       redirect_to blog_path(@blog)
     else
-      render :new
+      render 'blogs/show', status: :unprocessable_entity
     end
   end
 
@@ -34,6 +35,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :blog_id)
+    params.require(:comment).permit(:content)
   end
 end

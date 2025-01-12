@@ -9,6 +9,20 @@
         <%= like_blog_link(@blog, action: "likes#like") %>
         <%= blog_likes_count(@blog) %>
       </div>
+      <div id="comment-section" class="my-4">
+        <% if @blog.comments.any? %>
+          <% @blog.comments.each do |comment| %>
+            <div class="card">
+              <div class="card-body">
+                <%= comment.content %>
+              </div>
+              <div class="card-footer">
+                <%= comment.published_date %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       <% if user_signed_in? %>
         <%= render "comments/form", locals: { blog: @blog, bookmark: @comment } %>
       <% else %>
