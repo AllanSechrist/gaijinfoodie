@@ -44,6 +44,7 @@ gem "bootsnap", require: false
 gem "faker"
 gem 'simple_form'
 gem 'devise'
+gem 'pundit'
 gem 'bootstrap'
 gem 'sassc-rails'
 
